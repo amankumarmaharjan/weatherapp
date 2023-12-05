@@ -24,12 +24,12 @@ public class WeatherServiceImpl implements WeatherService {
     public WeatherResponse getWeatherDetails(WeatherRequestDTO weatherRequestDTO) {
         Optional<WeatherResponse> weatherResponseOptional = feignClientWeatherService.getWeatherDetails(weatherRequestDTO.getLatitude(),
                 weatherRequestDTO.getLongitude(), weatherRequestDTO.getExclude(), apiKey, null, null);
-        return weatherResponseOptional.isPresent() ? weatherResponseOptional.get() : null;
+        return weatherResponseOptional.orElse(null);
     }
 
     @Override
     public LocationWeatherResponse getWeatherDetailsByLocation(String query) {
         Optional<LocationWeatherResponse> locationWeatherResponseOptional = feignClientWeatherService.getWeatherDetailsByQuery(query, apiKey);
-        return locationWeatherResponseOptional.isPresent() ? locationWeatherResponseOptional.get() : null;
+        return locationWeatherResponseOptional.orElse(null);
     }
 }

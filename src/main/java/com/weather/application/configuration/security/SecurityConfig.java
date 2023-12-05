@@ -36,8 +36,8 @@ public class SecurityConfig {
                         .anyRequest()
                         .authenticated())
                 .httpBasic(Customizer.withDefaults())
-                .exceptionHandling()
-                .authenticationEntryPoint(authEntryPoint);
+                .exceptionHandling((exceptionHandling) ->
+                        exceptionHandling.authenticationEntryPoint(authEntryPoint));
         http.formLogin(Customizer.withDefaults());
         return http.build();
     }
