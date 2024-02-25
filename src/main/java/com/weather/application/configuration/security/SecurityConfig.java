@@ -33,8 +33,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) -> authorize
+                        .requestMatchers("/healthCheck").authenticated()
                         .anyRequest()
-                        .authenticated())
+                        .permitAll())
                 .httpBasic(Customizer.withDefaults())
                 .exceptionHandling((exceptionHandling) ->
                         exceptionHandling.authenticationEntryPoint(authEntryPoint));

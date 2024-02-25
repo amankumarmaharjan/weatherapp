@@ -1,5 +1,6 @@
 package com.weather.application.controller;
 
+import com.weather.application.aop.logging.LogExecution;
 import com.weather.application.model.APIResponse;
 import com.weather.application.model.WeatherRequestDTO;
 import com.weather.application.service.WeatherService;
@@ -23,12 +24,14 @@ public class WeatherControllerImpl extends WeatherController {
     }
 
     @Override
+    @LogExecution
     public ResponseEntity<?> getWeatherDetails(@ParameterObject @Valid WeatherRequestDTO weatherRequestDTO) {
         APIResponse apiResponse = APIResponse.builder().data(weatherService.getWeatherDetails(weatherRequestDTO)).build();
         return ResponseEntity.status(HttpStatus.OK).body(apiResponse);
     }
 
     @Override
+    @LogExecution
     public ResponseEntity<?> getWeatherDetailsByCityName(@Parameter(description = "Location for e.g Sydney", required = true) @NotBlank @RequestParam(value = "location") String location) {
         APIResponse apiResponse = APIResponse.builder().data(weatherService.getWeatherDetailsByLocation(location)).build();
         return ResponseEntity.status(HttpStatus.OK).body(apiResponse);
