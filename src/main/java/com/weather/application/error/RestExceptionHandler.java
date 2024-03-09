@@ -33,7 +33,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(
-            MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         String message = "Invalid Query Parameters";
         Error error = new Error(HttpStatus.BAD_REQUEST, String.valueOf(HttpStatus.BAD_REQUEST.value()), message, ex);
         return buildResponseEntity(APIErrorResponse.builder().error(error).build());
@@ -49,7 +49,7 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
 
     @Override
     protected ResponseEntity<Object> handleNoResourceFoundException(
-            NoResourceFoundException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
+        NoResourceFoundException ex, HttpHeaders headers, HttpStatusCode status, WebRequest request) {
         String message = "No Page Found";
         Error error = new Error(HttpStatus.NOT_FOUND, String.valueOf(HttpStatus.NOT_FOUND.value()), message, ex);
         return buildResponseEntity(APIErrorResponse.builder().error(error).build());

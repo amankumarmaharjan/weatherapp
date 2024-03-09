@@ -10,7 +10,7 @@ import org.springframework.test.context.TestPropertySource;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@TestPropertySource(locations="classpath:application-test.properties")
+@TestPropertySource(locations = "classpath:application-test.properties")
 public class HealthCheckControllerTest {
     @Autowired
     private HealthCheckController controller;
@@ -28,6 +28,6 @@ public class HealthCheckControllerTest {
     void healthCheckTest() throws Exception {
 
         assertThat(this.restTemplate.withBasicAuth("testUser", "testPassword").getForObject("http://localhost:" + port + "/healthCheck",
-                String.class)).contains("Welcome to Weather App!");
+            String.class)).contains("Welcome to Weather App!");
     }
 }

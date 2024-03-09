@@ -34,10 +34,9 @@ import static org.junit.Assert.assertNotNull;
 public class WeatherServiceClientIntegrationTest {
 
     @Autowired
-    private WireMockServer mockWeatherService;
-
-    @Autowired
     FeignClientWeatherService weatherClient;
+    @Autowired
+    private WireMockServer mockWeatherService;
 
     @BeforeEach
     void setUp() throws IOException {

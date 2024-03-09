@@ -33,12 +33,11 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((authorize) -> authorize
-                        .requestMatchers("/healthCheck").authenticated()
-                        .anyRequest()
-                        .permitAll())
-                .httpBasic(Customizer.withDefaults())
-                .exceptionHandling((exceptionHandling) ->
-                        exceptionHandling.authenticationEntryPoint(authEntryPoint));
+                .requestMatchers("/healthCheck").authenticated()
+                .anyRequest()
+                .permitAll())
+            .httpBasic(basic -> basic.authenticationEntryPoint(authEntryPoint))
+            .exceptionHandling(Customizer.withDefaults());
         http.formLogin(Customizer.withDefaults());
         return http.build();
     }
@@ -46,9 +45,9 @@ public class SecurityConfig {
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails userDetails = User.withUsername(username)
-                .password(passwordEncoder().encode(password))
-                .roles("USER")
-                .build();
+            .password(passwordEncoder().encode(password))
+            .roles("USER")
+            .build();
         return new InMemoryUserDetailsManager(userDetails);
     }
 

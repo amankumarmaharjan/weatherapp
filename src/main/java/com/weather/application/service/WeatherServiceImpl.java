@@ -23,7 +23,7 @@ public class WeatherServiceImpl implements WeatherService {
     @Override
     public WeatherResponse getWeatherDetails(WeatherRequestDTO weatherRequestDTO) {
         Optional<WeatherResponse> weatherResponseOptional = feignClientWeatherService.getWeatherDetails(weatherRequestDTO.getLatitude(),
-                weatherRequestDTO.getLongitude(), weatherRequestDTO.getExclude(), apiKey, null, null);
+            weatherRequestDTO.getLongitude(), weatherRequestDTO.getExclude(), apiKey, null, null);
         return weatherResponseOptional.orElse(null);
     }
 

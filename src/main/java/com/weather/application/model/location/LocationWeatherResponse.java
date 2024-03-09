@@ -1,13 +1,14 @@
 package com.weather.application.model.location;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.AllArgsConstructor;
+import lombok.With;
 
 import java.util.ArrayList;
 
-@Getter
-@Setter
+@With
+@AllArgsConstructor
 public class LocationWeatherResponse {
+    @With
     private Coord coord;
     private ArrayList<Weather> weather;
     private String base;
