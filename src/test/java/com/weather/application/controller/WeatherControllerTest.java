@@ -77,7 +77,6 @@ class WeatherControllerTest {
     }
 
     @Test
-    @Disabled
     void getWeatherDetailsByCityNameDownStreamError() throws Exception {
         this.mockMvc.perform(get("/weather/details/location").with(user(username).password(password))
                 .param("location", "ABC")).andDo(print())
