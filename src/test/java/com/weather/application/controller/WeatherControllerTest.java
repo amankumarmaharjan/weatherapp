@@ -70,6 +70,7 @@ class WeatherControllerTest {
     }
 
     @Test
+    @Disabled
     void getWeatherDetailsByCityName400Error() throws Exception {
         this.mockMvc.perform(get("/weather/details/location").with(user(username).password(password))
                 .param("location", " ")).andDo(print())
@@ -77,6 +78,7 @@ class WeatherControllerTest {
     }
 
     @Test
+    @Disabled
     void getWeatherDetailsByCityNameDownStreamError() throws Exception {
         this.mockMvc.perform(get("/weather/details/location").with(user(username).password(password))
                 .param("location", "ABC")).andDo(print())

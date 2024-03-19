@@ -1,350 +1,350 @@
 {
-	"info": {
-		"_postman_id": "2773e009-e2ab-49b3-94a9-3d4c1a880b6b",
-		"name": "WeatherAPI",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "4753028"
-	},
-	"item": [
-		{
-			"name": "exception",
-			"item": [
-				{
-					"name": "400",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "testUser",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "testPassword",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/weather/details?latitude=4&longitude=151.2&exclude=CURRENTl",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"weather",
-								"details"
-							],
-							"query": [
-								{
-									"key": "latitude",
-									"value": "4"
-								},
-								{
-									"key": "longitude",
-									"value": "151.2"
-								},
-								{
-									"key": "exclude",
-									"value": "CURRENTl"
-								},
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "401",
-					"request": {
-						"auth": {
-							"type": "noauth"
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/weather/details?latitude=33.8688&longitude=151.2&exclude=current",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"weather",
-								"details"
-							],
-							"query": [
-								{
-									"key": "latitude",
-									"value": "33.8688"
-								},
-								{
-									"key": "longitude",
-									"value": "151.2"
-								},
-								{
-									"key": "exclude",
-									"value": "current"
-								},
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "404",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "testUser",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "testPassword",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/weather/detail?latitude=-33.8688&longitude=151.2&exclude=current",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"weather",
-								"detail"
-							],
-							"query": [
-								{
-									"key": "latitude",
-									"value": "-33.8688"
-								},
-								{
-									"key": "longitude",
-									"value": "151.2"
-								},
-								{
-									"key": "exclude",
-									"value": "current"
-								},
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "500",
-					"request": {
-						"auth": {
-							"type": "basic",
-							"basic": [
-								{
-									"key": "username",
-									"value": "testUser",
-									"type": "string"
-								},
-								{
-									"key": "password",
-									"value": "testPassword",
-									"type": "string"
-								}
-							]
-						},
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/weather/details?latitude=-133.8688&longitude=151.2&exclude=CURRENT",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"weather",
-								"details"
-							],
-							"query": [
-								{
-									"key": "latitude",
-									"value": "-133.8688"
-								},
-								{
-									"key": "longitude",
-									"value": "151.2"
-								},
-								{
-									"key": "exclude",
-									"value": "CURRENT"
-								},
-								{
-									"key": "",
-									"value": "",
-									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "200getWeatherDetailsByCityName",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "testUser",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "testPassword",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/weather/details/location?location=sydney",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"weather",
-						"details",
-						"location"
-					],
-					"query": [
-						{
-							"key": "location",
-							"value": "sydney"
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "200getWeatherDetailsByCoordinate",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "password",
-							"value": "testPassword",
-							"type": "string"
-						},
-						{
-							"key": "username",
-							"value": "testUser",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/weather/details?latitude=33.44&longitude=151.20",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"weather",
-						"details"
-					],
-					"query": [
-						{
-							"key": "latitude",
-							"value": "33.44"
-						},
-						{
-							"key": "longitude",
-							"value": "151.20"
-						},
-						{
-							"key": "exclude",
-							"value": "current",
-							"disabled": true
-						},
-						{
-							"key": "",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "HealthCheck",
-			"request": {
-				"auth": {
-					"type": "basic",
-					"basic": [
-						{
-							"key": "username",
-							"value": "testUser",
-							"type": "string"
-						},
-						{
-							"key": "password",
-							"value": "testPassword",
-							"type": "string"
-						}
-					]
-				},
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8080/healthCheck",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"healthCheck"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "2773e009-e2ab-49b3-94a9-3d4c1a880b6b",
+    "name": "WeatherAPI",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4753028"
+  },
+  "item": [
+    {
+      "name": "exception",
+      "item": [
+        {
+          "name": "400",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "testUser",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "testPassword",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/weather/details?latitude=4&longitude=151.2&exclude=CURRENTl",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "weather",
+                "details"
+              ],
+              "query": [
+                {
+                  "key": "latitude",
+                  "value": "4"
+                },
+                {
+                  "key": "longitude",
+                  "value": "151.2"
+                },
+                {
+                  "key": "exclude",
+                  "value": "CURRENTl"
+                },
+                {
+                  "key": "",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "401",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/weather/details?latitude=33.8688&longitude=151.2&exclude=current",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "weather",
+                "details"
+              ],
+              "query": [
+                {
+                  "key": "latitude",
+                  "value": "33.8688"
+                },
+                {
+                  "key": "longitude",
+                  "value": "151.2"
+                },
+                {
+                  "key": "exclude",
+                  "value": "current"
+                },
+                {
+                  "key": "",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "404",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "testUser",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "testPassword",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/weather/detail?latitude=-33.8688&longitude=151.2&exclude=current",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "weather",
+                "detail"
+              ],
+              "query": [
+                {
+                  "key": "latitude",
+                  "value": "-33.8688"
+                },
+                {
+                  "key": "longitude",
+                  "value": "151.2"
+                },
+                {
+                  "key": "exclude",
+                  "value": "current"
+                },
+                {
+                  "key": "",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "500",
+          "request": {
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "testUser",
+                  "type": "string"
+                },
+                {
+                  "key": "password",
+                  "value": "testPassword",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:8080/weather/details?latitude=-133.8688&longitude=151.2&exclude=CURRENT",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "8080",
+              "path": [
+                "weather",
+                "details"
+              ],
+              "query": [
+                {
+                  "key": "latitude",
+                  "value": "-133.8688"
+                },
+                {
+                  "key": "longitude",
+                  "value": "151.2"
+                },
+                {
+                  "key": "exclude",
+                  "value": "CURRENT"
+                },
+                {
+                  "key": "",
+                  "value": "",
+                  "disabled": true
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "200getWeatherDetailsByCityName",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "testUser",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "testPassword",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/weather/details/location?location=sydney",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "weather",
+            "details",
+            "location"
+          ],
+          "query": [
+            {
+              "key": "location",
+              "value": "sydney"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "200getWeatherDetailsByCoordinate",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "password",
+              "value": "testPassword",
+              "type": "string"
+            },
+            {
+              "key": "username",
+              "value": "testUser",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/weather/details?latitude=33.44&longitude=151.20",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "weather",
+            "details"
+          ],
+          "query": [
+            {
+              "key": "latitude",
+              "value": "33.44"
+            },
+            {
+              "key": "longitude",
+              "value": "151.20"
+            },
+            {
+              "key": "exclude",
+              "value": "current",
+              "disabled": true
+            },
+            {
+              "key": "",
+              "value": "",
+              "disabled": true
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "HealthCheck",
+      "request": {
+        "auth": {
+          "type": "basic",
+          "basic": [
+            {
+              "key": "username",
+              "value": "testUser",
+              "type": "string"
+            },
+            {
+              "key": "password",
+              "value": "testPassword",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/healthCheck",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "8080",
+          "path": [
+            "healthCheck"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
 }

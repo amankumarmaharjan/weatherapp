@@ -22,7 +22,7 @@ import java.util.Optional;
 
 import static com.weather.application.wiremock.WeatherMocks.setupMockLocationResponse;
 import static com.weather.application.wiremock.WeatherMocks.setupMockWeatherResponse;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @ActiveProfiles("test")
