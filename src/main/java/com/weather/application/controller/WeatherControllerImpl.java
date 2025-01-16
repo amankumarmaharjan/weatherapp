@@ -6,6 +6,7 @@ import com.weather.application.model.WeatherRequestDTO;
 import com.weather.application.service.WeatherService;
 import io.swagger.v3.oas.annotations.Parameter;
 import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -14,13 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @Validated
+@RequiredArgsConstructor
 public class WeatherControllerImpl extends WeatherController {
+
     private final WeatherService weatherService;
-
-    public WeatherControllerImpl(WeatherService weatherService) {
-        this.weatherService = weatherService;
-    }
-
     @Override
     @LogExecution
     public ResponseEntity<APIResponse> getWeatherDetails(@ParameterObject WeatherRequestDTO weatherRequestDTO) {

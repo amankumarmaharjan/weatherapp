@@ -1,13 +1,17 @@
 package com.weather.application.controller;
 
+import com.weather.application.extension.LoggingExtension;
+import com.weather.application.extension.MyExtension;
 import com.weather.application.service.WeatherService;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.apache.logging.log4j.Logger;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
+import org.springframework.test.context.junit.jupiter.SpringJUnitConfig;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.hamcrest.Matchers.containsString;
@@ -19,6 +23,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @WebMvcTest(WeatherControllerImpl.class)
 @ActiveProfiles("test")
+@ExtendWith(MyExtension.class)
 class WeatherControllerTest {
     @Autowired
     private MockMvc mockMvc;
@@ -32,15 +37,18 @@ class WeatherControllerTest {
     @MockBean
     private WeatherService weatherService;
 
+    public Logger logger;
+
     @Test
-    void getWeatherDetailsTest200() throws Exception {
+    void givenValidLatitude_whenWeatherDetails_thenReturn200() throws Exception {
         this.mockMvc.perform(get("/weather/details").with(user(username).password(password))
                 .param("latitude", "33.44").param("longitude", "151.20")).andDo(print())
             .andExpect(status().isOk()).andExpect(jsonPath("$").exists());
     }
 
     @Test
-    void getWeatherDetailsTest400Error() throws Exception {
+    @DisplayName("")
+    void givenInvalidLatitude_whenGetWeatherDetails_thenReturn400BadRequest() throws Exception {
         this.mockMvc.perform(get("/weather/details").with(user(username).password(password))
                 .param("latitude", "33.44").param("longitude", "151.20").param("exclude", "df")).andDo(print())
             .andExpect(status().isBadRequest()).andExpect(content().string(containsString("Invalid Query Parameters")));
@@ -48,7 +56,7 @@ class WeatherControllerTest {
 
     @Test
     @Disabled
-    void getWeatherDetailsTest401Error() throws Exception {
+    void givenWeatherDetails_Test401Error() throws Exception {
         this.mockMvc.perform(get("/weather/details")
                 .param("latitude", "33.44").param("longitude", "151.20").with(csrf())).andDo(print())
             .andExpect(status().isUnauthorized()).andExpect(content().string(containsString("User Name or Password incorrect")));
@@ -90,6 +98,10 @@ class WeatherControllerTest {
         this.mockMvc.perform(get("/invalidResource").with(user(username).password(password))
                 .param("location", "ABC")).andDo(print())
             .andExpect(status().isNotFound()).andExpect(content().string(containsString("No Page Found")));
+    }
+
+    public void setLogger(Logger logger) {
+        this.logger = logger;
     }
 
 }
